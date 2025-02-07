@@ -1,0 +1,7 @@
+defaults:
+  - common
+
+defaults:
+  - guarded_maze
+
+_target_: envs.GuardedMazeNoMask

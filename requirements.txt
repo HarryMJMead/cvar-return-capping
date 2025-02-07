@@ -1,0 +1,12 @@
+ipykernel
+scipy
+pandas
+matplotlib
+pygame
+gymnasium[box2d]
+wandb
+imageio
+hydra-core
+hydra_colorlog
+tensordict
+torchrl

@@ -1,0 +1,9 @@
+defaults:
+  - common
+
+_target_: policies.CVaR_Value
+
+max_grad_norm: 1.0
+hidden_size: 256
+
+device: ???

@@ -1,0 +1,9 @@
+defaults:
+  - common
+
+_target_: policies.REINFORCE
+
+max_grad_norm: 1.0
+return_offset: 0.0
+
+device: ???

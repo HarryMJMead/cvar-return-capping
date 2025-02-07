@@ -1,0 +1,10 @@
+defaults:
+  - common
+
+_target_: policies.MIX
+
+max_grad_norm: 1.0
+hidden_size: 256
+risk_neutral_path: '/home/hmead/saved_policies/sunny-dragon-668'
+
+device: ???

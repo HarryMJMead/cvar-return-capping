@@ -1,0 +1,10 @@
+defaults:
+  - common
+
+_target_: envs.AutonomousVehicle
+
+map_path: "envs/av_maps/example_map_2.npz"
+edge_rewards: [[1, 2, 18], [2, 4, 13], [4, 5, 11], [7, 7, 8]]
+edge_probs: [0.4, 0.7]
+max_steps: 32
+one_hot: False

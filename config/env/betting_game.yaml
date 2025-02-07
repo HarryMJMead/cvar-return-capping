@@ -1,0 +1,7 @@
+defaults:
+  - common
+
+_target_: envs.BettingGame
+
+win_prob: 0.88
+max_sequence_length: 6

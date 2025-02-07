@@ -1,0 +1,28 @@
+defaults:
+  - policy: PPO
+  - env: betting_game
+  - scheduler: none
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+  - _self_
+
+num_steps: 500000
+num_updates: ???
+num_steps_per_update: ???
+
+num_episodes: 75000
+
+cap_return: False
+cap_alpha: 1
+cap_tau: 0.2
+initial_return_cap: 0
+minimum_return_cap: -1.5
+
+cvar_test_values: [0.05, 0.2, 1.0]
+
+save_model: False
+
+wandb:
+  project: CVaR Policy Gradient
+  log: False
+

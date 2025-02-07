@@ -1,0 +1,11 @@
+defaults:
+  - common
+
+reward_normalisation: 2000
+
+_target_: envs.DrivingSim
+
+leader_probs: [.3,.3,.3,.0,.1]
+p_oil: 0
+nine_actions: False
+reaction_delay: 7

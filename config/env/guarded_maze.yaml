@@ -1,0 +1,10 @@
+defaults:
+  - common
+
+_target_: envs.GuardedMaze
+
+start: [6, 1]
+goal: [5, 6]
+guard: [6, 5]
+max_steps: 500
+deduction_limit: 32

@@ -1,0 +1,16 @@
+*.pyc
+multirun/
+outputs/
+wandb/
+main.log
+*.pt
+.cache/
+.gnupg/
+.vscode-server/
+.gitconfig
+.dotnet/
+.config/
+.ipython/
+.local/
+.nv/
+.netrc

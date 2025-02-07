@@ -1,0 +1,7 @@
+defaults:
+  - common
+
+_target_: envs.LunarLander
+
+render_mode: none
+seed: 4
