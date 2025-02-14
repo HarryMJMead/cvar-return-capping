@@ -1,12 +1,21 @@
 from abc import ABC, abstractmethod
 import torch
 import torch.optim as optim
+import numpy as np
 
 from tensordict import TensorDict
 from torchrl.data.replay_buffers import ReplayBuffer
 from torchrl.data.replay_buffers.samplers import SamplerWithoutReplacement
 from torchrl.data.replay_buffers.storages import LazyTensorStorage
+from gymnasium import spaces
 
+def get_observation_size(space):
+    if isinstance(space, spaces.Box):
+        return int(np.prod(space.shape))  # Flattened observation size
+    elif isinstance(space, spaces.Discrete):
+        return space.n  # Number of discrete states
+    else:
+        raise TypeError(f"Unsupported space type: {type(space)}")
 
 class BasePolicy(ABC):
     optimizer : optim.Optimizer

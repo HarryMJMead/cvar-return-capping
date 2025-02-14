@@ -1,0 +1,7 @@
+defaults:
+  - common
+
+_target_: envs.SimpleGridEnv
+
+obstacle_map: 8x8
+reward_normalisation: 1.0

@@ -12,7 +12,7 @@ from torchrl.modules import ProbabilisticActor, TanhNormal, ValueOperator, Maske
 from torchrl.objectives.value import GAE
 from torchrl.objectives import ClipPPOLoss
 
-from policies.base_policy import BasePolicy
+from policies.base_policy import BasePolicy, get_observation_size
 
 
 class PolicyNet(nn.Module):
@@ -70,8 +70,10 @@ class PPO(BasePolicy):
         self.max_grad_norm = max_grad_norm
 
         torch.manual_seed(self.seed)
-        self.policy_net = PolicyNet(self.env.observation_space.shape[0], self.env.action_space.n, hidden_size=hidden_size).to(device)
-        self.value_net = PolicyNet(self.env.observation_space.shape[0], 1, hidden_size=hidden_size).to(device)
+        observation_size = get_observation_size(self.env.observation_space)
+        print(observation_size)
+        self.policy_net = PolicyNet(observation_size, self.env.action_space.n, hidden_size=hidden_size).to(device)
+        self.value_net = PolicyNet(observation_size, 1, hidden_size=hidden_size).to(device)
         self.value_module = ValueOperator(
             module=self.value_net,
             in_keys=['observation']

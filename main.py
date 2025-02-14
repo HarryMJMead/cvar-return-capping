@@ -91,14 +91,16 @@ def train(policy: BasePolicy, env: gym.Env, cfg: DictConfig, scheduler : LRSched
             else:
                 total_reward = total_reward_uncapped
             state, info = env.reset()
-            state, mask = torch.tensor(state, device=device), torch.tensor(info["mask"], dtype=torch.bool, device=device)
+            state = torch.tensor(state, dtype=torch.float32, device=device)
+            mask = torch.tensor(info["mask"], dtype=torch.bool, device=device) if "mask" in info else torch.ones(env.action_space.n, dtype=torch.bool, device=device)
             done = False
 
             while not done:
                 action, log_prob = policy.select_action(state.unsqueeze(0), mask.unsqueeze(0))
 
                 next_state, reward, done, info = env.step(action=action.item())
-                next_state, next_mask = torch.tensor(next_state, device=device), torch.tensor(info["mask"], dtype=torch.bool, device=device)
+                next_state = torch.tensor(next_state, dtype=torch.float32, device=device)
+                next_mask = torch.tensor(info["mask"], dtype=torch.bool, device=device) if "mask" in info else torch.ones(env.action_space.n, dtype=torch.bool, device=device)
 
                 total_reward_uncapped += reward
                 if cfg.cap_return:
