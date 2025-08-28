@@ -2,11 +2,11 @@
 
 Return Capping represents a novel method of improving the sample efficiency for training CVaR optimal policies, which we have shown empirically to outperform existing baselines in a number of environments.
 
-<img src="assets/BETTING_GAME.png" alt="Overview" height="150"/>
-<img src="assets/GUARDED_MAZE_CESOR.png" alt="Algorithm Flow" height="150"/>
-<img src="assets/LUNAR_LANDER.png" alt="Results" height="150"/>
-
-
+<p align="center">
+  <img src="assets/BETTING_GAME.png" alt="Betting Game" height="200"/>
+  <img src="assets/GUARDED_MAZE_CESOR.png" alt="Guarded Maze" height="200"/>
+  <img src="assets/LUNAR_LANDER.png" alt="Lunar Lander" height="200"/>
+</p>
 
 ## Installation
 
